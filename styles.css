@@ -191,7 +191,7 @@ body {
   object-position: center 60%;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 650px) {
   .carousel-track {
     height: 320px;
   }

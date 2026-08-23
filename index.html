@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajude o Frodo</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-surface text-text antialiased">
+  <nav class="fixed inset-x-0 top-0 z-50 h-[82px] border-b border-line bg-surface/95 backdrop-blur">
+    <div class="mx-auto flex h-full max-w-[1152px] items-center justify-between px-6">
+      <a href="#" class="font-display text-[22px] font-black text-primaryDark">Ajudar o Frodo</a>
+
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#sobre" class="border-b-2 border-cta pb-2 text-sm font-bold text-primaryDark">Sobre o Frodo</a>
+        <a href="#transparencia" class="pb-2 text-sm font-bold text-muted hover:text-primaryDark">Transparência</a>
+        <a href="#atualizacoes" class="pb-2 text-sm font-bold text-muted hover:text-primaryDark">Atualizações</a>
+      </div>
+
+      <button type="button" class="payment-trigger rounded-full bg-cta px-7 py-3 text-sm font-bold text-white transition hover:bg-ctaDark">
+        Ajudar Agora
+      </button>
+    </div>
+  </nav>
+
+  <header class="mx-auto max-w-[1152px] px-6 pb-[66px] pt-[150px] text-center">
+    <h1 class="font-display text-[44px] font-black leading-tight text-primary md:text-[52px]">
+      Ajude o Frodo a se recuperar
+    </h1>
+    <p class="mx-auto mt-5 max-w-[610px] text-[17px] leading-7 text-muted">
+      Ele foi resgatado com uma lesão grave e precisa de uma cirurgia de emergência.
+    </p>
+  </header>
+
+  <main class="mx-auto grid max-w-[1152px] grid-cols-1 gap-8 px-6 pb-24 lg:grid-cols-[750px_360px]">
+    <div class="space-y-12">
+      <section class="carousel overflow-hidden rounded-lg border border-line bg-card shadow-card" aria-label="Fotos do Frodo">
+        <div class="carousel-track">
+          <img src="imagens/imagem-principal.jpeg" alt="Foto principal do Frodo" class="carousel-slide is-active" />
+          <img src="imagens/img-1.jpeg" alt="Foto do Frodo 1" class="carousel-slide" />
+          <img src="imagens/img-2.jpeg" alt="Foto do Frodo 2" class="carousel-slide" />
+          <img src="imagens/img-3.jpeg" alt="Foto do Frodo 3" class="carousel-slide" />
+          <img src="imagens/img-4.jpeg" alt="Foto do Frodo 4" class="carousel-slide" />
+          <img src="imagens/img-5.jpeg" alt="Foto do Frodo 5" class="carousel-slide" />
+        </div>
+
+        <button class="carousel-button carousel-button-prev" type="button" aria-label="Imagem anterior">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button class="carousel-button carousel-button-next" type="button" aria-label="Próxima imagem">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+
+        <div class="carousel-dots" aria-label="Indicadores do carrossel">
+          <button class="carousel-dot is-active" type="button" aria-label="Ir para imagem 1"></button>
+          <button class="carousel-dot" type="button" aria-label="Ir para imagem 2"></button>
+          <button class="carousel-dot" type="button" aria-label="Ir para imagem 3"></button>
+          <button class="carousel-dot" type="button" aria-label="Ir para imagem 4"></button>
+          <button class="carousel-dot" type="button" aria-label="Ir para imagem 5"></button>
+          <button class="carousel-dot" type="button" aria-label="Ir para imagem 6"></button>
+        </div>
+      </section>
+
+      <section id="doar" class="-mt-4 rounded-lg border border-line bg-card p-6 shadow-card">
+        <h2 class="font-display text-[24px] font-black text-primary">Resumo do caso</h2>
+        <p class="mt-3 text-[15px] leading-6 text-muted">
+          Precisamos arrecadar fundos para a cirurgia intestinal de emergência do Frodo, internação e medicamentos pós-operatórios. Qualquer ajuda é bem-vinda.
+        </p>
+
+        <div class="mt-6">
+          <div class="mb-2 flex items-end justify-between">
+            <strong id="raisedAmount" class="text-[25px] font-black text-primary">R$ 0,00</strong>
+            <span class="text-sm font-bold text-muted">de R$ 4.000,00</span>
+          </div>
+          <div class="h-3 overflow-hidden rounded-full bg-[#e1e6e1]">
+            <div id="progressBar" class="h-full rounded-full bg-primary" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <button type="button" class="payment-trigger mt-7 flex h-[59px] w-full items-center justify-center rounded-lg bg-cta text-[15px] font-bold uppercase text-white shadow-button transition hover:bg-ctaDark">
+          Ajudar o Frodo
+        </button>
+      </section>
+
+      <section id="sobre" class="rounded-lg border border-line bg-card px-10 py-11 shadow-card">
+        <h2 class="font-display text-[34px] font-black text-primary">História do Frodo</h2>
+        <div class="mt-8 max-w-[620px] space-y-4 text-[15px] leading-[1.55] text-text">
+          <p>Esse pequeno é o <strong>Frodo</strong>. 🐱❤️</p>
+          <p>Ele foi encontrado próximo à nossa casa em uma situação muito grave, com cerca de <strong>15 cm do intestino para fora do corpo</strong> e precisando de atendimento veterinário imediato.</p>
+          <p>Tentamos encontrar algum serviço de resgate ou ONG que pudesse acolhê-lo, mas infelizmente não conseguimos. Já era quase 20h e sabíamos que esperar poderia colocar ainda mais a vida dele em risco.</p>
+          <p>Mesmo sem estarmos preparados financeiramente para isso — já temos <strong>3 gatos e 2 cachorros</strong> — não conseguimos simplesmente deixá-lo naquela situação. Então decidimos assumir a responsabilidade e levá-lo às pressas para atendimento.</p>
+          <p>Por indicação de uma vizinha, chegamos até a <strong>TantasPatas</strong>, onde fomos recebidos pela Juliane, especializada em felinos. Assim que avaliou o Frodo, ela percebeu a gravidade do caso e rapidamente mobilizou a equipe, pois ele precisava passar por uma <strong>cirurgia de emergência</strong>.</p>
+          <p>Felizmente, conseguimos dar ao Frodo a chance que ele precisava. ❤️</p>
+          <p>Porém, entre a cirurgia de emergência, atendimento e todos os cuidados necessários, tivemos um gasto de aproximadamente <strong>R$ 4.000,00</strong>, um valor que não esperávamos e que pesa bastante para nós neste momento.</p>
+          <p>Por isso decidimos criar esta Vakinha.</p>
+          <p>Não estamos pedindo que uma pessoa arque com uma grande quantia. <strong>Qualquer ajuda faz diferença.</strong> R$ 5, R$ 10, R$ 20… cada contribuição nos ajuda a diminuir esse custo e continuar proporcionando ao Frodo tudo o que ele precisa para se recuperar.</p>
+          <p>E, caso você não possa contribuir financeiramente, <strong>compartilhar esta Vakinha também nos ajuda muito.</strong></p>
+          <p>O Frodo apareceu nas nossas vidas de uma maneira que jamais poderíamos imaginar. Nós poderíamos ter seguido nosso caminho, mas naquele momento sentimos que não conseguiríamos abandonar um animal que precisava tanto de ajuda.</p>
+          <p>Hoje ele não é mais apenas “o gatinho que encontramos”.</p>
+          <p><strong>Ele é o nosso Frodo.</strong> ❤️🐾</p>
+          <p>Obrigado de coração a cada pessoa que puder contribuir, compartilhar ou simplesmente torcer pela recuperação desse pequeno. Toda ajuda significa muito para nós — e principalmente para ele.</p>
+        </div>
+        <button type="button" class="payment-trigger mt-7 inline-flex rounded-full bg-cta px-8 py-4 text-sm font-bold uppercase text-white transition hover:bg-ctaDark">
+          Quero ajudar
+        </button>
+      </section>
+
+      <section id="transparencia" class="pt-1">
+        <h2 class="text-center font-display text-[25px] font-black uppercase text-primary">Transparência</h2>
+        <div class="mt-7 grid gap-6 md:grid-cols-3">
+          <article class="rounded-lg border border-line bg-card px-6 py-7 text-center shadow-card">
+            <span class="material-symbols-outlined text-[34px] text-primary">healing</span>
+            <h3 class="mt-4 text-[17px] font-bold text-text">Cirurgia</h3>
+            <p class="mt-1 text-sm text-muted">R$ 2.500,00</p>
+          </article>
+          <article class="rounded-lg border border-line bg-card px-6 py-7 text-center shadow-card">
+            <span class="material-symbols-outlined text-[34px] text-primary">medication</span>
+            <h3 class="mt-4 text-[17px] font-bold text-text">Remédios</h3>
+            <p class="mt-1 text-sm text-muted">R$ 800,00</p>
+          </article>
+          <article class="rounded-lg border border-line bg-card px-6 py-7 text-center shadow-card">
+            <span class="material-symbols-outlined text-[34px] text-primary">biotech</span>
+            <h3 class="mt-4 text-[17px] font-bold text-text">Exames</h3>
+            <p class="mt-1 text-sm text-muted">R$ 700,00</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="atualizacoes" class="rounded-lg bg-soft px-10 py-10">
+        <h2 class="font-display text-[26px] font-black uppercase text-primary">Atualizações do Frodo</h2>
+
+        <div class="mt-9 border-l-2 border-primary/25 pl-8">
+          <article class="relative pb-11">
+            <span class="absolute -left-[41px] top-1 h-4 w-4 rounded-full bg-primary ring-4 ring-soft"></span>
+            <time class="text-sm font-bold text-primary">22/08</time>
+            <h3 class="mt-4 text-[18px] font-medium text-text">Frodo está se recuperando em casa</h3>
+            <p class="mt-4 text-[15px] leading-6 text-muted">
+              O Frodo já recebeu alta e está se recuperando em casa, com todos os cuidados necessários nesse pós-operatório. A próxima consulta está marcada para o dia 01, quando ele deve passar pela remoção dos pontos e por novos testes de acompanhamento.
+            </p>
+            <div class="mt-4 overflow-hidden rounded border border-line">
+              <img
+                src="imagens/img-5.jpeg"
+                alt="Frodo descansando em casa durante a recuperação"
+                class="update-photo h-[196px] w-full object-cover"
+              />
+            </div>
+          </article>
+
+          <article class="relative">
+            <span class="absolute -left-[41px] top-1 h-4 w-4 rounded-full bg-line ring-4 ring-soft"></span>
+            <time class="text-sm font-bold text-muted">20/08</time>
+            <h3 class="mt-4 text-[18px] font-medium text-muted">Cirurgia agendada!</h3>
+            <p class="mt-4 text-[15px] leading-6 text-muted">
+              Graças aos primeiros apoios, conseguimos agendar a cirurgia para amanhã de manhã. Muito obrigado a todos que já doaram.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="py-16 text-center">
+        <h2 class="font-display text-[24px] font-black uppercase text-primary">❤ Obrigado por ajudar o Frodo ❤</h2>
+        <button type="button" class="payment-trigger mt-8 inline-flex rounded-lg bg-cta px-14 py-5 text-[15px] font-bold uppercase text-white shadow-button transition hover:bg-ctaDark">
+          Ajudar o Frodo
+        </button>
+      </section>
+    </div>
+
+    <aside class="hidden lg:block">
+      <div class="sticky top-[108px] rounded-lg border border-line bg-soft p-6 shadow-card">
+        <h2 class="font-display text-[26px] font-black text-ctaDark">Quem já ajudou</h2>
+        <p id="supporterCount" class="mt-1 text-sm font-semibold text-muted">A lista de apoiadores aparecerá em breve.</p>
+
+        <div class="my-6 h-px bg-line"></div>
+
+        <button class="flex w-full items-center gap-3 rounded-lg bg-ctaSoft px-4 py-3 text-left text-sm font-black text-ctaDark">
+          <span class="material-symbols-outlined text-[22px]">favorite</span>
+          Recentes
+        </button>
+
+        <div id="supporterList" class="mt-8 rounded bg-card p-5 text-sm leading-6 text-muted shadow-card">
+          Ainda não há apoiadores exibidos aqui.
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer id="duvidas" class="mt-10 bg-[#255b43]">
+    <div class="mx-auto flex min-h-[170px] max-w-[1284px] flex-col justify-between gap-8 px-10 py-12 text-white md:flex-row md:items-center">
+      <div>
+        <h2 class="font-display text-[24px] font-black">Ajudar o Frodo</h2>
+        <p class="mt-6 text-sm text-white/65">© 2024 Todos os direitos reservados para a Campanha do Frodo.</p>
+      </div>
+      <div class="flex gap-8 text-sm font-bold text-white/70">
+        <a href="#">Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Fechar imagem ampliada">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <button class="lightbox-button lightbox-button-prev" type="button" aria-label="Imagem anterior ampliada">
+      <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <img class="lightbox-image" src="" alt="" />
+    <button class="lightbox-button lightbox-button-next" type="button" aria-label="Próxima imagem ampliada">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+  </div>
+
+  <div class="payment-modal" aria-hidden="true">
+    <div class="payment-card" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+      <button class="payment-close" type="button" aria-label="Fechar pagamento">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="payment-panel is-active" data-payment-panel="pix">
+        <h2 id="paymentTitle" class="font-display text-[28px] font-black text-primary">Ajude o Frodo</h2>
+        <p class="mt-3 text-sm leading-6 text-muted">
+          Escaneie o QR Code ou copie a chave Pix abaixo para contribuir com qualquer valor.
+        </p>
+        <img
+          class="payment-qr"
+          src="imagens/qrcode-pix.png"
+          alt="QR Code Pix para ajudar o Frodo"
+        />
+        <label class="mt-5 block text-sm font-bold text-primaryDark" for="pixKey">Chave Pix</label>
+        <div class="mt-2 flex gap-2">
+          <input id="pixKey" class="payment-input" readonly value="9209cff5-4efd-4c11-b982-4c0b99d6fdc1" />
+          <button id="copyPix" class="payment-copy" type="button">Copiar</button>
+        </div>
+        <p id="copyPixStatus" class="mt-3 h-5 text-sm font-bold text-primary"></p>
+        <button class="payment-message" type="button" data-show-message-form>
+          Deixar uma mensagem
+        </button>
+      </div>
+
+      <form class="payment-panel supporter-form" data-payment-panel="message">
+        <h2 class="font-display text-[28px] font-black text-primary">Deixe uma mensagem</h2>
+        <p class="mt-3 text-sm leading-6 text-muted">
+          Escreva seu nome e um recado curto para aparecer na lista de quem já ajudou.
+        </p>
+        <label class="mt-5 block text-sm font-bold text-primaryDark" for="supporterName">Nome</label>
+        <input id="supporterName" class="payment-input mt-2 w-full" maxlength="32" required placeholder="Seu nome" />
+        <label class="mt-4 block text-sm font-bold text-primaryDark" for="supporterMessage">Mensagem</label>
+        <textarea id="supporterMessage" class="payment-input mt-2 min-h-[104px] w-full resize-none" maxlength="120" required placeholder="Uma mensagem curta para o Frodo"></textarea>
+        <div class="mt-5 flex gap-2">
+          <button class="payment-back" type="button" data-show-pix-panel>Voltar</button>
+          <button class="payment-copy flex-1 py-3" type="submit">Publicar</button>
+        </div>
+        <p id="supporterFormStatus" class="mt-3 h-5 text-sm font-bold text-primary"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

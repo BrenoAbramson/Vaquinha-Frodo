@@ -1,6 +1,6 @@
 const carousel = document.querySelector(".carousel");
 const donationGoal = 4000;
-const donationRaised = 800;
+const donationRaised = 1285;
 const raisedAmount = document.querySelector("#raisedAmount");
 const progressBar = document.querySelector("#progressBar");
 const paymentModal = document.querySelector(".payment-modal");
